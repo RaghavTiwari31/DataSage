@@ -1,0 +1,50 @@
+def generate_visuals(df: pd.DataFrame, output_dir: str) -> dict:
+    print("📈 Generating visualizations...")
+    figs = {}
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Apply dark style
+    plt.style.use('dark_background')
+    sns.set_style("darkgrid")
+
+    # 1. Missing values heatmap
+    if df.isnull().sum().sum() > 0:
+        fig, ax = plt.subplots(figsize=(8, 5))
+        sns.heatmap(df.isnull(), cbar=False, cmap="viridis", ax=ax)
+        ax.set_title("Missing Values Heatmap", color='white')
+        path = os.path.join(output_dir, "missing_values.png")
+        fig.savefig(path, facecolor=fig.get_facecolor())
+        figs["missing_values"] = _fig_to_base64(fig)
+
+    # 2. Correlation heatmap
+    numeric_df = df.select_dtypes(include=["number"])
+    if not numeric_df.empty:
+        fig, ax = plt.subplots(figsize=(8, 6))
+        sns.heatmap(numeric_df.corr(), annot=True, cmap="coolwarm", ax=ax)
+        ax.set_title("Correlation Heatmap", color='white')
+        path = os.path.join(output_dir, "correlation_matrix.png")
+        fig.savefig(path, facecolor=fig.get_facecolor())
+        figs["correlation_matrix"] = _fig_to_base64(fig)
+
+    # 3. Distribution plots for first 3 numeric columns
+    for col in numeric_df.columns[:3]:
+        fig, ax = plt.subplots(figsize=(6, 4))
+        sns.histplot(numeric_df[col], kde=True, bins=30, color="#1f77b4", ax=ax)
+        ax.set_title(f"Distribution of {col}", color='white')
+        path = os.path.join(output_dir, f"dist_{col}.png")
+        fig.savefig(path, facecolor=fig.get_facecolor())
+        figs[f"dist_{col}"] = _fig_to_base64(fig)
+
+    # 4. Bar plot of first categorical column frequencies
+    cat_df = df.select_dtypes(include=["object"])
+    if not cat_df.empty:
+        col = cat_df.columns[0]
+        fig, ax = plt.subplots(figsize=(7, 4))
+        df[col].value_counts().plot(kind="bar", color="#ff7f0e", ax=ax)
+        ax.set_title(f"Frequency of {col}", color='white')
+        path = os.path.join(output_dir, f"freq_{col}.png")
+        fig.savefig(path, facecolor=fig.get_facecolor())
+        figs[f"freq_{col}"] = _fig_to_base64(fig)
+
+    print(f"✅ Generated {len(figs)} figures")
+    return figs
