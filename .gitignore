@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+
+# Jupyter / Streamlit temp
+.ipynb_checkpoints/
+.streamlit/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Outputs
+outputs/
+*.xlsx
+*.html
+*.pdf
+figures/
