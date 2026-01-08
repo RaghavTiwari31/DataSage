@@ -1,55 +1,134 @@
-📊 Data Sage - an Excel Data Cleaner & Insights Bot
+# Data Sage – Excel Data Cleaner & Insights Bot
 
-A powerful automation tool to clean, validate, and analyze Excel datasets with ease.
-Built as part of my Summer Internship Project (2025), this bot provides:
-Automated data cleaning (duplicates, missing values, formatting).
-Validation checks for column consistency.
-Anomaly detection on numeric features.
-Predictive Insights (linear regression + clustering).
-Professional reports (HTML + PDF) with visualizations.
-An interactive Streamlit GUI for non-technical users.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![Scikit-learn](https://img.shields.io/badge/ML-Scikit--learn-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Internship](https://img.shields.io/badge/Project-Summer%20Internship%202025-purple)
 
-🚀 Features
+---
 
-✔ Data Cleaning – Removes duplicates, fills missing values, standardizes formats.
-✔ Validation – Configurable rules via config.yaml.
-✔ Anomaly Detection – Detects outliers using IQR.
-✔ Visualizations – Heatmaps, correlation matrix, distributions.
-✔ Predictive Insights –
+## 🚀 Overview
 
-Salary prediction using linear regression (if Experience + Salary exist).
+**Data Sage** is an end-to-end automation tool that **cleans, validates, analyzes, and generates insights from Excel datasets** with minimal manual effort.
 
-Automatic clustering of numeric columns.
-✔ Reports – Exports styled HTML + PDF reports with insights.
-✔ Interactive GUI – Upload, preview, clean, analyze, and download results in one click.
+Developed as part of my **Summer Internship Project (2025)**, this project focuses on **real-world data quality challenges**, combining automation, machine learning, and visualization with an intuitive interface for both technical and non-technical users.
 
-🛠️ Tech Stack
+---
 
-Python 3.10+
-Pandas, NumPy (data processing)
-Seaborn, Matplotlib (visualizations)
-Scikit-learn (predictive models)
-Streamlit (interactive GUI)
-Jinja2 + wkhtmltopdf (report generation)
+## 🎯 Why This Project Matters
 
-📂 Project Structure
+In real-world datasets:
+- Excel files are messy and inconsistent  
+- Manual cleaning is time-consuming and error-prone  
+- Insights are often delayed or missed  
 
+**Data Sage** automates the entire workflow — from raw Excel files to **ML-driven insights and professional reports** — making data analysis faster, reliable, and accessible.
+
+---
+
+## ✨ Key Features
+
+### 🔹 Automated Data Cleaning
+- Removes duplicate records  
+- Handles missing values intelligently  
+- Standardizes numeric, categorical, and date formats  
+
+### 🔹 Data Validation
+- Rule-based validation using `config.yaml`  
+- Ensures schema and column consistency  
+
+### 🔹 Anomaly Detection
+- Detects numeric outliers using **Interquartile Range (IQR)**  
+- Flags potential data quality issues  
+
+### 🔹 Visual Analytics
+- Correlation matrices  
+- Heatmaps  
+- Feature distributions  
+
+### 🔹 Predictive Insights
+- **Linear Regression** for salary prediction  
+  *(Automatically triggered if `Experience` and `Salary` columns exist)*  
+- **Unsupervised Clustering** on numeric features for pattern discovery  
+
+### 🔹 Professional Reports
+- Styled **HTML reports**
+- Exportable **PDF reports**
+- Embedded charts, summaries, and insights  
+
+### 🔹 Interactive GUI
+- Built using **Streamlit**
+- Upload → Preview → Clean → Analyze → Download  
+- Designed for non-technical users  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Python 3.10+**
+- **Pandas, NumPy** – Data processing  
+- **Seaborn, Matplotlib** – Visualization  
+- **Scikit-learn** – Machine Learning  
+- **Streamlit** – Interactive Web UI  
+- **Jinja2 + wkhtmltopdf** – Report generation  
+
+---
+
+## 📂 Project Structure
+
+```text
 excel-data-cleaner-bot-advanced/
-│── src/
-│   ├── cleaning.py         # Data cleaning functions
-│   ├── validation.py       # Validation rules
-│   ├── anomalies.py        # Anomaly detection
-│   ├── visualize.py        # Data visualizations
-│   ├── predictive.py       # Predictive insights (ML)
-│   ├── reporting.py        # HTML + PDF report generation
-│   ├── io_utils.py         # File helpers
-│   ├── main.py             # CLI pipeline entrypoint
-│── templates/
-│   └── report_template.html # Jinja2 HTML report template
-│── config/
-│   └── config.yaml         # Cleaning + validation rules
-│── app.py                  # Streamlit GUI
-│── sample_data/sample.xlsx # Example dataset
-│── outputs/                # Cleaned files + reports
+│
+├── src/
+│   ├── cleaning.py        # Data cleaning logic
+│   ├── validation.py     # Rule-based validation
+│   ├── anomalies.py      # Outlier detection (IQR)
+│   ├── visualize.py      # Visual analytics
+│   ├── predictive.py     # ML models & clustering
+│   ├── reporting.py      # HTML & PDF report generation
+│   ├── io_utils.py       # File utilities
+│   └── main.py           # CLI pipeline entrypoint
+│
+├── templates/
+│   └── report_template.html
+│
+├── config/
+│   └── config.yaml
+│
+├── sample_data/
+│   └── sample.xlsx
+│
+├── outputs/
+│   └── cleaned_files & reports
+│
+├── app.py                # Streamlit GUI
+└── README.md
+
+## ▶️ How to Run
+
+### 1️⃣ Install Dependencies
+```bash
+pip install -r requirements.txt
+
+### 2️⃣ Run the Streamlit App (Recommended)
+```bash
+streamlit run app.py
+
+### 3️⃣ Run via CLI (Optional)
+```bash
+python src/main.py
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👤 Author
+
+**Raghav Tiwari**
+B.Tech Computer Science Engineering
+Software Engineering | Data Analytics | Machine Learning | Cloud
+
 
 
