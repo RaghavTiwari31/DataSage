@@ -105,24 +105,26 @@ excel-data-cleaner-bot-advanced/
 │
 ├── app.py                # Streamlit GUI
 └── README.md
+```
 
 ## ▶️ How to Run
 
 ### 1️⃣ Install Dependencies
 ```bash
 pip install -r requirements.txt
-
+```
 ### 2️⃣ Run the Streamlit App (Recommended)
 ```bash
 streamlit run app.py
-
+```
 ### 3️⃣ Run via CLI (Optional)
 ```bash
 python src/main.py
-
+```
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE.md) file for details.
 
 ## 👤 Author
 
